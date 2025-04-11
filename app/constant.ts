@@ -280,7 +280,7 @@ You are ChatGPT, a large language model trained by {{ServiceProvider}}.
 Knowledge cutoff: {{cutoff}}
 Current model: {{model}}
 Current time: {{time}}
-Latex inline: \\(x^2\\) 
+Latex inline: \\(x^2\\)
 Latex block: $$e=mc^2$$
 `;
 
@@ -311,7 +311,7 @@ You are an AI assistant with access to system tools. Your role is to help users 
       - Use markdown code blocks with format: \`\`\`json:mcp:{clientId}\`\`\`
       - Always include:
         * method: "tools/call"（Only this method is supported）
-        * params: 
+        * params:
           - name: must match an available primitive name
           - arguments: required parameters for the primitive
 
@@ -380,7 +380,7 @@ You are an AI assistant with access to system tools. Your role is to help users 
    \`\`\`
 
    This is wrong because the method is not tools/call.
-   
+
    \`\`\`{
   "method": "search_repositories",
   "params": {
@@ -403,9 +403,9 @@ You are an AI assistant with access to system tools. Your role is to help users 
      }
    }
    \`\`\`
-   
+
    please follow the format strictly ONLY use tools/call method!!!!!!!!!!!
-   
+
 `;
 
 export const SUMMARIZE_MODEL = "gpt-4o-mini";
@@ -433,6 +433,17 @@ export const KnowledgeCutOffDate: Record<string, string> = {
   o1: "2023-10",
   "o3-mini-2025-01-31": "2023-10",
   "o3-mini": "2023-10",
+  // Grok-3 models
+  "grok-3-mini-beta-high": "2024-10",
+  "grok-3-beta": "2024-10",
+  "grok-3-fast-beta": "2024-10",
+  "grok-3-mini-beta": "2024-10",
+  "grok-3-mini-beta-low": "2024-10",
+  "grok-3-mini-beta-medium": "2024-10",
+  "grok-3-mini-fast-beta": "2024-10",
+  "grok-3-mini-fast-beta-high": "2024-10",
+  "grok-3-mini-fast-beta-low": "2024-10",
+  "grok-3-mini-fast-beta-medium": "2024-10",
   // After improvements,
   // it's now easier to add "KnowledgeCutOffDate" instead of stupid hardcoding it, as was done previously.
   "gemini-pro": "2023-12",
@@ -471,7 +482,10 @@ export const VISION_MODEL_REGEXES = [
   /vl/i,
 ];
 
-export const EXCLUDE_VISION_MODEL_REGEXES = [/claude-3-5-haiku-20241022/];
+export const EXCLUDE_VISION_MODEL_REGEXES = [
+  /claude-3-5-haiku-20241022/,
+  /grok-3/, // 排除所有grok-3模型的视觉能力
+];
 
 const openaiModels = [
   // As of July 2024, gpt-4o-mini should be used in place of gpt-3.5-turbo,
@@ -611,6 +625,16 @@ const xAIModes = [
   "grok-2-vision-1212",
   "grok-2-vision",
   "grok-2-vision-latest",
+  "grok-3-mini-beta-high",
+  "grok-3-beta",
+  "grok-3-fast-beta",
+  "grok-3-mini-beta",
+  "grok-3-mini-beta-low",
+  "grok-3-mini-beta-medium",
+  "grok-3-mini-fast-beta",
+  "grok-3-mini-fast-beta-high",
+  "grok-3-mini-fast-beta-low",
+  "grok-3-mini-fast-beta-medium",
 ];
 
 const chatglmModels = [
